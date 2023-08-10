@@ -6,7 +6,7 @@ import '../layouts/mainlayout.css'
 const MainLayout = ({children}) => {
   return (
     <div className="mainlayout">
-      <header className="container layout-main-header">
+      <header className="layout-main-header">
         <NavbarMain/>
       </header>
       {children}

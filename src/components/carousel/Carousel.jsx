@@ -1,46 +1,65 @@
 
 import Carousel from 'react-bootstrap/Carousel';
+import React, { useEffect, useState } from 'react'
+
+
+//hardcoded array de imagenes para prueba de Carousel
+const images = ['https://images.pexels.com/photos/1054417/pexels-photo-1054417.jpeg',
+                'https://images.pexels.com/photos/4589325/pexels-photo-4589325.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+                'https://images.pexels.com/photos/5116269/pexels-photo-5116269.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+              ]
+
+
 
 
 const Carousel = () => {
+
+  // boton siguiente>next
+  const [index, setIndex] = useState(0)
+  const next = () => {
+    if (index < images.length - 1) {
+      setIndex(index + 1)
+    } else {
+      setIndex(0)
+    }
+
+  }
+
+  // boton previo<previus
+  const prev = () => {
+    if (index > 0) {
+      setIndex(index - 1)
+    } else {
+      setIndex(images.length - 1)
+    }
+  }
+  
+  // indicador de cursor en slide 
+  const setPointer = (indice) => {
+    setIndex(indice)
+  }
+
+  useEffect(() => {
+    let intervalID = setInterval(() => {
+      
+      setIndex((pre) => pre + 1)
+      
+      // prev()
+      // Pasa a la anterior imagen en loop
+      // next()
+    }, 1000)
+
+    return () => {
+      clearInterval(intervalID)
+    }
+
+  }, [index])
+
+
+
+
   return (
-    <Carousel data-bs-theme="dark">
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=First slide&bg=f5f5f5"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h5>First slide label</h5>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Second slide&bg=eee"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h5>Second slide label</h5>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100"
-          src="holder.js/800x400?text=Third slide&bg=e5e5e5"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h5>Third slide label</h5>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <></>
   )
 }
 
