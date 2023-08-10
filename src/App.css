@@ -2,11 +2,11 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  
 }
 
-.appheader .appfooter{
+.appfooter{
   height: 10vh;
-  background-color: cadetblue;
 }
 
 .appmain{

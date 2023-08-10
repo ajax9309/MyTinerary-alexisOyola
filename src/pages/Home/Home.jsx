@@ -1,11 +1,14 @@
+import Hero from "../../components/hero/Hero"
+import MainLayout from "../../layouts/MainLayout"
 
 const Home = () => {
   return (
-    <div className='applayout'>
-      <header className='appheader'>head</header>
-      <main className='appmain'>main</main>
-      <footer className='appfooter'>foot</footer>
-    </div>   
+      <MainLayout>
+      <main className='appmain'>
+      <Hero/>
+      </main>
+      </MainLayout>
+
   )
 }
 
