@@ -1,13 +1,17 @@
+import Buttonexplore from "../../components/buttonexplore/Buttonexplore"
 import Hero from "../../components/hero/Hero"
-import MainLayout from "../../layouts/MainLayout"
+
 
 const Home = () => {
   return (
-      <MainLayout>
-      <main className='appmain'>
-      <Hero/>
-      </main>
-      </MainLayout>
+      // <MainLayout>
+      
+        <div>
+        <Hero/>
+        <Buttonexplore/>
+        </div>    
+      
+      // </MainLayout>
 
   )
 }
