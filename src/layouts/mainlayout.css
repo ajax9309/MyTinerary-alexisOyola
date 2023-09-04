@@ -1,13 +1,14 @@
-.mainlayout{
+/* .mainlayout{
     min-height: 100vh;
     display: flex;
     flex-direction: column;
   }
-  .appfooter .appheader{
+
+  .appfooter , .appheader{
     height: 10vh;
   }
   
   .appmain{
     flex-grow:1 ;
   }
-  
+   */

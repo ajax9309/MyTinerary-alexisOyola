@@ -1,19 +1,17 @@
-import Buttonexplore from "../../components/buttonexplore/Buttonexplore"
-import Hero from "../../components/hero/Hero"
-
+import Buttonexplore from "../../components/buttonexplore/Buttonexplore";
+import Maincarousel from "../../components/carousel/Carousel";
+import Hero from "../../components/hero/Hero";
 
 const Home = () => {
   return (
-      // <MainLayout>
-      
-        <div>
-        <Hero/>
-        <Buttonexplore/>
-        </div>    
-      
-      // </MainLayout>
+    // <MainLayout>
+    <> 
+        <Hero />
+        <Buttonexplore />
+        <Maincarousel/>
+    </>
+    // </MainLayout>
+  );
+};
 
-  )
-}
-
-export default Home
+export default Home;

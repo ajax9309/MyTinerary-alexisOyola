@@ -4,11 +4,7 @@ import Card from 'react-bootstrap/Card';
 
 const Cardcities = ({data}) => {
     const {city,
-        country,
-        language,
-        currency,
         image,
-        population,
         description}=data
   return (
     <div>
