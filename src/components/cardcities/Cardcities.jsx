@@ -14,10 +14,7 @@ const Cardcities = ({data}) => {
           <Card.Title>{city}</Card.Title>
           <Card.Text>
             {description}
-            {/* {country}
-            {language}
-            {population}
-            {currency} */}
+            
           </Card.Text>
           <Button variant="primary">Discover</Button>
         </Card.Body>

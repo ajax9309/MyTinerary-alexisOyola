@@ -8,18 +8,18 @@ const Cities = () => {
   // console.log(params);
   const [cities, setCities] = useState([]);
   useEffect(() => {
-    axios("http://localhost:3000/api/cities").then((res) =>
-      setCities(res.data.response)
-    );
+    axios("http://localhost:3000/api/cities")
+    .then((res) =>setCities(res.data.response))
+    .catch((err)=> console.log(err))
   }, []);
 
   return (
     <div className="">
-      {/* {
-        cities.map(city=> <Cardcities keys={city._id} data={city} />)
-      }
-      <Cardcities/> */}
-      
+      {cities.length>=0 ? (
+        cities.map((city)=> <Cardcities key={city._id} data={city} />)
+      ):(
+        <h2>No results</h2>
+      )}
     </div>
   );
 };
