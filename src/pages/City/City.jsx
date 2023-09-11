@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from "react-router-dom";
 import { getOneCity } from "../../svc/cityQueries.js";
 
@@ -9,14 +9,14 @@ const City = () => {
   useEffect(() => {
     getOneCity(id).then(setCity)
   }, []);
-  console.log(city);
+  // console.log(city);
 
 
   return (
-    <section className="container d-flex justify-content-center">
+    <div className="container d-flex justify-content-center">
       <h1 className='text-center text-primary'>{city.name}</h1>
       
-    </section>
+    </div>
   )
 }
 
