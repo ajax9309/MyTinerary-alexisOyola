@@ -9,6 +9,7 @@ const Cities = () => {
   const params = useParams();
   // console.log(params);
   const [cities, setCities] = useState([]);
+  // console.log(cities);
   const txtSearch=useRef(null)
   useEffect(() => {
     getAllCities().then(setCities)
