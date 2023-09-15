@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getOneCity } from "../../svc/cityQueries.js";
 import { Accordion, Card, CardGroup } from 'react-bootstrap';
 import Cardtinerary from "../../components/cardtinerary/Cardtinerary.jsx"
+// import { getAllTineraries } from '../../svc/tineraryQueries.js';
 
 
 const City = () => {
@@ -12,16 +13,15 @@ const City = () => {
   useEffect(() => {
     getOneCity(id).then(setCity)
   }, []);
+  console.log(city)
   
-  // const Tinerary = () => {
-  //   const [tinerary, setTinerary] = useState([]);
-  //   const {id}=useParams()
+    const [tinerary, setTinerary] = useState([]);
+    const {idTinerary}=useParams()
   
-  //   useEffect(() => {
-  //     getAllTineraries(id).then(setTinerary)
-  //   }, []);  
-
-  //   console.log(tinerary);
+     useEffect(() => {
+       getAllTineraries(idTinerary).then(setTinerary)
+     }, []);  
+     console.log(tinerary);
 
 
   return (
@@ -46,11 +46,11 @@ const City = () => {
         <Accordion.Body>
         
         <CardGroup>
-        {/* {city.tinerary.length>=0 ? (
+        {tinerary.length>=0 ? (
         tinerary.map((tinerary)=> <Cardtinerary key={tinerary._id} data={tinerary} />)
         ):(
           <h3>No tineraries yet</h3>
-        )} */}
+        )}
         
         </CardGroup>
         </Accordion.Body>

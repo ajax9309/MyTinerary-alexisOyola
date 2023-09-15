@@ -11,12 +11,19 @@ const NavbarMain = () => {
     <div>
       <Navbar expand="lg" className="" bg="dark" data-bs-theme="dark">
         <Container>
-          <Navbar.Brand href="/">MyTinerary</Navbar.Brand>
+          <Navbar.Brand>
+            <Link to="/Home" >MyTineraries</Link>
+          </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">      
-              <Nav.Link href="/">Home</Nav.Link>
-              <Link to="/Cities">Cities</Link>
+            <Nav className="me-auto">
+              <NavLink >
+                <Link className="m-1" to="/Home" >Home</Link>
+                <Link className="m-1" to="/Cities">Cities</Link>
+                <Link className="m-1" to="/SignUp">SignUp</Link>
+                <Link className="m-1" to="/SignIn">SignIn</Link>
+              </NavLink>
+              <NavLink></NavLink>      
             </Nav>
           </Navbar.Collapse>
           <Button variant="outline-info"><BsPersonCircle/></Button>

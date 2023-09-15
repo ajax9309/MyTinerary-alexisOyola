@@ -1,10 +1,18 @@
 import axios from "axios";
 
-const URL_DB="http://localhost:3000/api/cities"
+const cityQuery=axios.create({
+    baseURL:"http://localhost:3000/api/cities"
+})
+
+const tineraryQuery=axios.create({
+    baseURL:"http://localhost:3000/api/tineraries"
+})
+
+ 
 
 export const getAllCities=async(queryParams="")=>{
     try {
-        const response=await axios(URL_DB+queryParams)
+        const response=await cityQuery(queryParams)
         return response.data.response
     } catch (err) {
         return[]
@@ -14,10 +22,21 @@ export const getAllCities=async(queryParams="")=>{
 
 export const getOneCity=async(id)=>{
     try {
-        const response=await axios(`${URL_DB}/${id}`)
+        const response=await cityQuery("/"+id)
         return response.data.response
     } catch (err) {
         return[]
+    }
+
+}
+
+export const getTineraries=async (queryParams="")=>{
+    try {
+        
+        const response=await tineraryQuery(queryParams)
+        return response.data
+    } catch (error) {
+        return []
     }
 
 }

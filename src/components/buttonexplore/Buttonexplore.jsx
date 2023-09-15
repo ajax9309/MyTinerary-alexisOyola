@@ -1,12 +1,12 @@
 import React from 'react'
-import { Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const Buttonexplore = () => {
   return (
-    <div className="d-grid text-center">
-      <Button href='/cities' className='m-3 p-2' variant="success" size="lg">
-        Explore
-      </Button>
+    <div className="d-grid text-center"> 
+      <Link to={"/Cities"} className='btn btn-success m-3 p-2'>
+        Explore Cities
+      </Link>
     </div>
   )
 }
