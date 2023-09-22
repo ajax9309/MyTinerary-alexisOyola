@@ -13,6 +13,9 @@ import Notfound from "./pages/Notfound/Notfound";
 import City from "./pages/City/City";
 import Signup from "./pages/SignUp/Signup";
 import Signin from "./pages/SignIn/Signin";
+import {useDispatch} from "react-redux"
+import {loginWithToken}from "./redux/actions/userAction.js"
+
 
 const router = createBrowserRouter([
   {
@@ -48,9 +51,16 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  const [count, setCount] = useState(0);
+ const dispatch=useDispatch()
+ useEffect(() => {
+  const token=localStorage.getItem("token")
+  if (token) {
+    dispatch(loginWithToken())
+  }
+ }, []);
 
-  return (<RouterProvider router={router} />
+  return (
+    <RouterProvider router={router} />
   );
 }
 
