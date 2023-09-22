@@ -1,8 +1,39 @@
 import React from 'react'
 import { Col, Button, Row, Container, Card, Form } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { signIn } from '../../redux/actions/userAction';
+import { useDispatch } from 'react-redux';
+import { useRef } from 'react';
+import jwtDecode from 'jwt-decode';
+import { GoogleLogin } from '@react-oauth/google';
 
 const Signin = () => {
+  const navto = useNavigate();
+  const dispatch = useDispatch();
+  const email = useRef(null);
+  const password = useRef(null);
+
+  const handChangeData = (e) => {
+    const signInData = {
+      
+      email: email.current.value.toLowerCase(),
+      password: password.current.value,
+      
+    };
+    dispatch(signIn(signInData));
+  };
+
+  const handSubmitGoogle = (credentialResponse) => {
+    const userData = jwtDecode(credentialResponse.credential);
+    const googleData = {
+      email: userData.email,
+      password: userData.family_name+userData.sub,
+    };
+    dispatch(signIn(googleData));
+    navto("/Home");
+  };
+
+
   return (
     
     <div>
@@ -21,7 +52,12 @@ const Signin = () => {
                         <Form.Label className="text-center">
                           Email address
                         </Form.Label>
-                        <Form.Control type="email" placeholder="Enter email" />
+                        <Form.Control
+                          className='input' 
+                          type="email"
+                          name="email"
+                          ref={email} 
+                          placeholder="Enter email" />
                       </Form.Group>
 
                       <Form.Group
@@ -29,24 +65,37 @@ const Signin = () => {
                         controlId="formBasicPassword"
                       >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Password" />
+                        <Form.Control
+                          className="input" 
+                          type="password" 
+                          name="password"
+                          ref={password}
+                          placeholder="Password" />
                       </Form.Group>
                       <Form.Group
                         className="mb-3"
                         controlId="formBasicCheckbox"
                       >
-                        <p className="small">
-                          <a className="text-primary" href="#!">
-                            Forgot password?
-                          </a>
-                        </p>
                       </Form.Group>
                       <div className="d-grid">
-                        <Button variant="primary" type="submit">
+                        <Button variant="primary" type="submit" onClick={handChangeData}>
                           Login
                         </Button>
                       </div>
                     </Form>
+                    <div className='py-3'>
+                    <div className="border border-1"></div>
+                      <Card.Text className='py-2 text-center'>Or Sign Up with your Google Account</Card.Text>
+                      <div className='text-center'>
+                        <GoogleLogin
+                          text="logingoogle"
+                          onSuccess={handSubmitGoogle}
+                          onError={() => {
+                            console.log("Login Failed");
+                          }}
+                        />
+                      </div>
+                      </div>
                     <div className="mt-3">
                       <p className="mb-0  text-center">
                         Don't have an account?{" "}

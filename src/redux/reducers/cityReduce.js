@@ -6,7 +6,7 @@ const initialState={
     tineraries:[],
     city:null,
     tinerary:null,
-    value:"",
+    targetvalue:"",
     input:""
 }
 
@@ -50,7 +50,7 @@ const citiesReducer = createReducer (initialState,(builder)=>{
      .addCase(cityInput,(store,action)=>{
         return{
             ...store,
-            value:action.payload.value,
+            targetvalue:action.payload.value,
             input:action.payload.input
         }
      })

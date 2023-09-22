@@ -26,7 +26,7 @@ const NavbarMain = () => {
               <NavLink></NavLink>      
             </Nav>
           </Navbar.Collapse>
-          <Button variant="outline-info"><BsPersonCircle/></Button>
+          <Link className="btn btn-outline-info m-1" to="/SignIn"><BsPersonCircle/></Link>
         </Container>
       </Navbar>
       

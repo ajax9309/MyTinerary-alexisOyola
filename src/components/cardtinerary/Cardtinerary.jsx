@@ -1,18 +1,18 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
-const Cardtinerary = ({data}) => {
+const Cardtinerary = (tinerary) => {
   return (
     
       <Card >
-        <Card.Img variant="top" src={data.image} />
+        <Card.Img variant="top" src={tinerary.image} />
         <Card.Body>
-          <Card.Title>{data.tinerary}</Card.Title>
+          <Card.Title>{tinerary.tinerary}</Card.Title>
           <Card.Text>
-            Price: {data.price}
+            Price: {tinerary.price}
           </Card.Text>
           <Card.Text>
-            Duration: {data.duration}
+            Duration: {tinerary.duration}
           </Card.Text>
         </Card.Body>
         <Card.Footer className="m-0 p-0 btn btn-tertiary stretched-link">

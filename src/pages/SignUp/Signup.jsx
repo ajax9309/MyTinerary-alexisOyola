@@ -121,14 +121,14 @@ const Signup = () => {
                     </Form>
                     <div className="py-3 text-center">
                       <div className="border border-1"></div>
-                      <Card.Text>Or Sign Up with your Google Account</Card.Text>
+                      <Card.Text className="py-2">Or Sign Up with your Google Account</Card.Text>
 
                       <div>
                         <GoogleLogin
                           text="logingoogle"
                           onSuccess={handSubmitGoogle}
                           onError={() => {
-                            console.log("Login Failed");
+                            console.log("SignUp Failed");
                           }}
                         />
                       </div>
